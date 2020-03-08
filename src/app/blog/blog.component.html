@@ -1,0 +1,29 @@
+<app-page-heading [pageTitle]="pageTitle"></app-page-heading>
+
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-sm-8">
+
+            <div class="postleft py-5">
+
+                <div class="card shadow border-0 rounded-0 mb-5 text-left" *ngFor="let post of blogposts" >
+                    <img class="card-img-top rounded-0" src="../../assets/images/blog-post.jpg" alt="">
+                    <div class="card-body">
+                      <h4 class="card-title">{{ post.title }}</h4>
+                        <p class="card-text">
+                            {{ post.body }}
+                        </p>
+                        <p class="mb-1 text-right">
+                            <a class="btn btn-primary text-white rounded-0" [routerLink]="['/blog', post.id]">Read More</a>
+                        </p>
+                    </div>
+                </div>    
+      
+            </div>
+            
+        </div>
+        <div class="col-12 col-sm-4">
+
+        </div>
+    </div>
+</div>

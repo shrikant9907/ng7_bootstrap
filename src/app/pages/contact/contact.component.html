@@ -1,0 +1,83 @@
+<app-page-heading [pageTitle]="pageTitle"></app-page-heading>
+<section class="basic-page py-5 bg-white">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <div class="card shadow-lg mb-3 border-0">
+                  <div class="card-body">
+                    <h4 class="card-title ">Get in touch</h4>
+                    <form [formGroup] = 'messageForm' (ngSubmit)="onSubmit()">
+                      <div class="alert alert-success" *ngIf="success">Your form has been submitted</div>
+                        <div class="form-row">
+                            <div class="col">
+                                <div class="form-group">
+                                    <input type="text" formControlName="yourname" id="yourname" class="form-control" placeholder="Your Full Name." aria-describedby="helpId">
+                                    <div *ngIf="submitted && messageForm.controls.yourname.errors && messageForm.controls.yourname.errors.required" class="mt-1 text-danger">
+                                      Your name is a required field.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group">
+                                    <input type="email" email=true formControlName="youremail" id="youremail" class="form-control" placeholder="Your Email." aria-describedby="helpId">
+                                  <div *ngIf="submitted && messageForm.controls.youremail.errors && messageForm.controls.youremail.errors.required" class="text-danger">
+                                    Email is a required field.
+                                  </div>
+                                  <div *ngIf="submitted && messageForm.controls.youremail.errors && messageForm.controls.youremail.errors.email" class="mt-1 text-danger">
+                                    Email invalid.
+                                  </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                          <textarea class="form-control" placeholder="Message" formControlName="yourmessage" rows="4"></textarea>
+                          <div *ngIf="submitted && messageForm.controls.yourmessage.errors && messageForm.controls.yourmessage.errors.required" class="mt-1 text-danger">
+                            Message is a required field.
+                          </div>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary px-5 py-2 rounded-0">Submit</button>
+                        </div>
+                    </form>
+                    <div class="col-6">  
+                      <code *ngIf="submitted" class="w-25 mx-auto mt-5">
+                          <p><strong>Name:</strong>       <span>{{ messageForm.controls.yourname.value }}</span></p>
+                          <p><strong>Email:</strong>       <span>{{ messageForm.controls.youremail.value }}</span></p>
+                          <p><strong>Message:</strong>    <span>{{ messageForm.controls.yourmessage.value }}</span></p>
+                      </code>
+                  </div>
+                  </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="form-row">
+                    <div class="col-12">
+                        <div class="card shadow-lg mb-3 border-0">
+                          <div class="card-body">
+                            <h4 class="card-title text-center"><span class="card-icon d-block w-100 mb-2"><i class="fa fa-map-marker" aria-hidden="true"></i> </span>Address</h4>
+                            <p class="card-text text-center">Lorem ipsum dolor , molestiae at minus odio id illo placeat quis doloremque aperiam.</p>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <div class="card shadow-lg mb-3 border-0">
+                          <div class="card-body">
+                            <h4 class="card-title text-center"><span class="card-icon d-block w-100 mb-2"><i class="fa fa-map-marker" aria-hidden="true"></i> </span>Email Us</h4>
+                            <p class="card-text text-center">info@exampleemail.com</p>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <div class="card shadow-lg mb-3 border-0">
+                          <div class="card-body">
+                            <h4 class="card-title text-center"><span class="card-icon d-block w-100 mb-2"><i class="fa fa-map-marker" aria-hidden="true"></i> </span>Call Us</h4>
+                            <p class="card-text text-center">+91 1234567891</p>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<iframe class="w-100 mb-4" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d235527.45447187257!2d75.72376231823414!3d22.723911730226312!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3962fcad1b410ddb%3A0x96ec4da356240f4!2sIndore%2C%20Madhya%20Pradesh!5e0!3m2!1sen!2sin!4v1582626693465!5m2!1sen!2sin" height="450" frameborder="0" allowfullscreen=""></iframe>

@@ -1,0 +1,59 @@
+<app-page-heading [pageTitle]="pageTitle"></app-page-heading>
+<section class="basic-page py-5 bg-white">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-6 mx-auto">
+                <div class="card shadow-lg mb-3 border-0 py-3">
+                  <div class="card-body">
+                    <h4 class="card-title text-center mb-4">Create Account</h4>
+                    <form [formGroup]='SignupForm' (ngSubmit)="onSubmit($event)"  enctype="multipart/form-data">
+                      <div class="alert alert-success" *ngIf="signupSuccess">You are logged in successfully.</div>
+                      <div class="alert alert-danger" *ngIf="submitted && SignupForm.valid && !signupSuccess">Invalid user signup credentials.</div>
+                        <div class="form-row">
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <input (keyup)="onKeyUp()" [ngClass]="{ 'is-invalid': submitted && SignupForm.controls.name.errors, 'is-valid': submitted && !SignupForm.controls.name.errors && !signupSuccess }" type="text" formControlName="name" id="name" class="form-control" placeholder="Name" aria-describedby="helpId">
+                                    <div *ngIf="submitted && SignupForm.controls.name.errors" class="mt-1 text-danger">
+                                        <span *ngIf="SignupForm.controls.name.errors.required">Name is a required field.</span>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <input (keyup)="onKeyUp()" [ngClass]="{ 'is-invalid': submitted && SignupForm.controls.email.errors, 'is-valid': submitted && !SignupForm.controls.email.errors && !signupSuccess }" type="email" formControlName="email" id="email" class="form-control" placeholder="Email" aria-describedby="helpId">
+                                    <div *ngIf="submitted && SignupForm.controls.email.errors" class="mt-1 text-danger">
+                                        <span *ngIf="SignupForm.controls.email.errors.required">Email is a required field.</span>
+                                        <span *ngIf="SignupForm.controls.email.errors.email">Email must be valid email address.</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <input (keyup)="onKeyUp()" [ngClass]="{ 'is-invalid': submitted && SignupForm.controls.password.errors, 'is-valid': submitted && !SignupForm.controls.password.errors && !signupSuccess }" type="password" formControlName="password" id="password" class="form-control" placeholder="Password" aria-describedby="helpId">
+                                    <div *ngIf="submitted && SignupForm.controls.password.errors" class="text-danger">
+                                        <span *ngIf="SignupForm.controls.password.errors.required">Password is a required field.</span>
+                                        <span *ngIf="SignupForm.controls.password.errors.minlength">Password must be at least {{SignupForm.controls.password.errors.minlength.requiredLength}} characters.</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <input (keyup)="onKeyUp()" [ngClass]="{ 'is-invalid': submitted && SignupForm.controls.password.errors, 'is-valid': submitted && !SignupForm.controls.password.errors && !signupSuccess }" type="password" formControlName="cpassword" id="cpassword" class="form-control" placeholder="Confirm Password" aria-describedby="helpId">
+                                    <div *ngIf="submitted && SignupForm.controls.cpassword.errors" class="text-danger">
+                                        <span *ngIf="SignupForm.controls.cpassword.errors.required">Confirm Password is a required field.</span>
+                                        <span *ngIf="SignupForm.controls.cpassword.errors.minlength">Confirm Password must be at least {{SignupForm.controls.password.errors.minlength.requiredLength}} characters.</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" [disabled]="submitted" class="btn btn-primary px-5 py-2 rounded-0">Signup</button>
+                        </div>
+                    </form>
+                  </div>
+                </div>
+                <p class="text-center">OR</p>
+                <p class="text-center">Already have an account? <a routerLink="/login">Login</a></p>
+            </div>
+         
+        </div>
+    </div>
+</section>

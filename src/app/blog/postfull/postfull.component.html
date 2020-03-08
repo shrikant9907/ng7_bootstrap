@@ -1,0 +1,26 @@
+<app-page-heading [pageTitle]="pageTitle"></app-page-heading>
+
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-sm-8">
+
+            <div class="postleft py-5">
+
+                <div *ngIf="blogpost" class="card shadow border-0 rounded-0 mb-5 text-left" >
+                    <img class="card-img-top rounded-0" src="../../assets/images/blog-post.jpg" alt="">
+                    <div class="card-body">
+                      <h4 class="card-title">{{ blogpost.title }}</h4>
+                        <p class="card-text">
+                            {{ blogpost.body }}
+                        </p>
+                    </div>
+                </div>    
+      
+            </div>
+            
+        </div>
+        <div class="col-12 col-sm-4">
+
+        </div>
+    </div>
+</div>
